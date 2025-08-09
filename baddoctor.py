@@ -80,7 +80,7 @@ uploaded = st.file_uploader(
 
 # 參數表單
 with st.form("extract_form"):
-    default_pattern = r"(醫師懲戒委員會懲戒決議書|醫師懲戒委員會 懲戒決議書)"
+    default_pattern = r"(醫師懲戒委員會懲戒決議書|醫師懲戒委員會 懲戒決議書|藥師懲戒委員會懲戒決議書|藥師懲戒委員會 懲戒決議書)"
     pattern_text = st.text_area("關鍵字或正則（可多個，以換行分隔）", value=default_pattern, height=90)
     c1,c2,c3,c4 = st.columns(4)
     with c1: use_ocr = st.checkbox("使用 OCR（較慢）", value=False)
