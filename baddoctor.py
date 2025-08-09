@@ -65,6 +65,12 @@ st.title("🩺 醫事審查委員會頁面擷取（政府公報 PDF）")
 
 st.markdown("上傳 PDF → 按「開始擷取」→ 下方顯示文字高亮＋圖片預覽＋單頁下載。")
 
+# 上傳在表單外（可用 on_change）
+top_cols = st.columns([1,1,6])
+with top_cols[0]:
+    if st.button("清除結果"):
+        _clear_results(); st.experimental_rerun()
+
 uploaded = st.file_uploader(
     "上傳政府公報 PDF",
     type=["pdf"],
@@ -74,7 +80,7 @@ uploaded = st.file_uploader(
 
 # 參數表單
 with st.form("extract_form"):
-    default_pattern = r"(懲戒決議|醫師懲戒|醫事審[議|查]委員會|決議書)"
+    default_pattern = r"(醫師懲戒委員會懲戒決議書|醫師懲戒委員會 懲戒決議書)"
     pattern_text = st.text_area("關鍵字或正則（可多個，以換行分隔）", value=default_pattern, height=90)
     c1,c2,c3,c4 = st.columns(4)
     with c1: use_ocr = st.checkbox("使用 OCR（較慢）", value=False)
