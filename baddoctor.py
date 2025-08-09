@@ -65,12 +65,6 @@ st.title("🩺 醫事審查委員會頁面擷取（政府公報 PDF）")
 
 st.markdown("上傳 PDF → 按「開始擷取」→ 下方顯示文字高亮＋圖片預覽＋單頁下載。")
 
-# 上傳在表單外（可用 on_change）
-top_cols = st.columns([1,1,6])
-with top_cols[0]:
-    if st.button("清除結果"):
-        _clear_results(); st.experimental_rerun()
-
 uploaded = st.file_uploader(
     "上傳政府公報 PDF",
     type=["pdf"],
